@@ -6,9 +6,10 @@ def open_img(img, dim):
     img = Image.open(img)
     px_map = []
     for x in range(dim):
-        px_row = []
-        for y in range(dim):
-            px_row.append('b' if img.load()[y, x] == (0, 0, 0, 255) else 'w')
+        px_row = [
+            'b' if img.load()[y, x] == (0, 0, 0, 255) else 'w'
+            for y in range(dim)
+        ]
         px_map.append(px_row)
     return px_map
 
